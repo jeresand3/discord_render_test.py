@@ -1,20 +1,6 @@
-import os
-import asyncio
-import discord
-
-print("DISCORD.PY VERSION:", discord.__version__)
-
 import main
 
-async def test():
-    print("MAIN.PY IMPORTED")
-    print("BOT OBJECT CREATED:", main.bot)
-    print("INTENTS:", main.bot.intents)
+print("MAIN.PY IMPORTED")
+print("STARTING BOT.RUN NOW")
 
-    await main.bot.login(main.BOT_TOKEN)
-
-    print("FULL MAIN.PY BOT LOGIN SUCCESS")
-
-    await main.bot.close()
-
-asyncio.run(test())
+main.bot.run(main.BOT_TOKEN)
