@@ -1,12 +1,20 @@
 import os
-import requests
+import asyncio
+import discord
 
-token = os.getenv("BOT_TOKEN")
+print("DISCORD.PY VERSION:", discord.__version__)
 
-response = requests.get(
-    "https://discord.com/api/v10/users/@me",
-    headers={"Authorization": f"Bot {token}"}
-)
+import main
 
-print("HTTP STATUS:", response.status_code)
-print("RESPONSE:", response.text)
+async def test():
+    print("MAIN.PY IMPORTED")
+    print("BOT OBJECT CREATED:", main.bot)
+    print("INTENTS:", main.bot.intents)
+
+    await main.bot.login(main.BOT_TOKEN)
+
+    print("FULL MAIN.PY BOT LOGIN SUCCESS")
+
+    await main.bot.close()
+
+asyncio.run(test())
